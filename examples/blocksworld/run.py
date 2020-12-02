@@ -16,6 +16,7 @@ def read_pddl(filename):
     directory = os.path.dirname(os.path.abspath(__file__))
     return read(os.path.join(directory, filename))
 
+
 ##################################################
 
 def solve_pddl():
@@ -25,6 +26,7 @@ def solve_pddl():
     plan, cost = solve_from_pddl(domain_pddl, problem_pddl)
     print('Plan:', plan)
     print('Cost:', cost)
+
 
 ##################################################
 
@@ -40,23 +42,26 @@ def get_problem():
         ('clear', 'b'),
         ('arm-empty',),
     ]
-    goal =  ('on', 'a', 'b')
+    goal = ('on', 'a', 'b')
 
     return domain_pddl, constant_map, stream_pddl, stream_map, init, goal
+
 
 def solve_pddlstream(focused=False):
     pddlstream_problem = get_problem()
     if focused:
         solution = solve_focused(pddlstream_problem, unit_costs=True)
     else:
-        solution = solve_incremental(pddlstream_problem, unit_costs=True, planner='cerberus', debug=False)
+        solution = solve_incremental(pddlstream_problem, unit_costs=True, planner='ff-astar', debug=False)
     print_solution(solution)
+
 
 ##################################################
 
 def main():
-    #solve_pddl()
+    # solve_pddl()
     solve_pddlstream()
+
 
 if __name__ == '__main__':
     main()

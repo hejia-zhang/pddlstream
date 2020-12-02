@@ -34,9 +34,10 @@ PLANNER = 'tfd' # tfd | tflap | optic | tpshe | cerberus
 
 # /home/caelan/Programs/VAL
 
-TFD_PATH = '/home/caelan/Programs/tfd-src-0.4/downward'
+# TFD_PATH = '/home/caelan/Programs/tfd-src-0.4/downward'
 #TFD_PATH = '/home/caelan/Programs/TemPorAl/src/src/TFD'
 #TFD_PATH = '/home/caelan/Programs/TemPorAl/src/src/temporal-FD'
+TFD_PATH = '/home/sa_docker/dev_ws/tfd-src-0.4/downward'
 MAX_TIME = 20
 PLAN_FILE = 'plan'
 TFD_TRANSLATE = os.path.join(TFD_PATH, 'translate/') # tfd & temporal-FD
